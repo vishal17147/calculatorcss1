@@ -1,0 +1,136 @@
+<html>
+    <head>
+        <title>Calculator in css </title>
+
+        <style>
+            body{
+                margin: 0;
+            }
+            .main{
+                width: 100%;
+                justify-content: center;
+                align-items: center;
+                display: flex;
+                background-color: #00aeff;
+                height: 100vh;
+            }
+            .box{
+                width: 450px;
+                height: 550px;
+                outline: 5px solid #e74c3c;
+                background-color: white;
+                border-radius: 15px;
+                display: flex;
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .display{
+                background-color: #e74c3c;
+                flex: 1;
+            }
+            .buttons{
+                flex:5;
+                background-color: white;
+                padding-left: 10%;
+                padding-right: 10%;
+                padding-top: 30px;
+                display: flex;
+                flex-direction: row;
+                align-items: stretch;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+            .display>h1{
+                color: white;
+                text-align: right;
+                margin-right: 10px;
+                font-size: 55px;
+                margin-bottom: 0;
+                margin-top: 15px;
+                font-family: sans-serif;
+            }
+            button{
+                width: 22.5%;
+                margin-bottom: 18px;
+                border-radius: 5px;
+                border: 0;
+                box-shadow: 2px 2px 6px black;
+                outline: 2px solid #e74c3c;
+                background-color: white;
+                font-size: 30px;
+                font-weight: 500;
+            }
+            .equal{
+                width: 100%;
+                background-color: #e74c3c;
+                color:white;
+            }
+            .operator{
+                background-color: #ffb6ae;
+            }
+
+        </style>
+    </head>
+    <body>
+        
+
+
+        <div class="main">
+            <div class="box">
+                <div class="display">
+                    <h1 id="display">0</h1>
+                </div>
+                <div class="buttons">
+                    <button type="button" onclick="press('7');">7</button>
+                    <button type="button" onclick="press('8');">8</button>
+                    <button type="button" onclick="press('9');">9</button>
+                    <button type="button" onclick="press('+');" class="operator">+</button>
+                   
+                    <button type="button" onclick="press('4');">4</button>
+                    <button type="button" onclick="press('5');">5</button>
+                    <button type="button" onclick="press('6');">6</button>
+                    <button type="button" onclick="press('-');" class="operator">-</button>
+                   
+                    <button type="button" onclick="press('1');">1</button>
+                    <button type="button" onclick="press('2');">2</button>
+                    <button type="button" onclick="press('3');">3</button>
+                    <button type="button" onclick="press('*');" class="operator">*</button>
+                   
+                    <button type="button" onclick="press('0');">0</button>
+                    <button type="button" onclick="press('.');">.</button>
+                    <button type="button" onclick="press('/');" class="operator">/</button>
+                    <button type="button" onclick="clearWork()" class="operator">C</button>
+
+                    <button class="equal" type="button" onclick="total();">=</button>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <script>
+            let display = document.getElementById("display")
+           
+            
+            let expression = ""
+            
+            function press(oper){
+                    expression += oper
+                    display.innerHTML = expression 
+            }
+
+            function clearWork(){
+                expression = ""
+                display.innerHTML = "0"
+            }
+
+            function total(){
+                let total = eval(expression)
+                display.innerHTML = total
+            }
+
+
+        </script>
+    </body>
+</html>
